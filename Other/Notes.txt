@@ -34,6 +34,9 @@ Install-Module --Name Az -Scope CurrentUser -Repository PSGallery -Force
 
 az deployment sub create --name 'mysubcroiptionId' --template-file .\script.bicep
 
+#Resource groups
+https://www.youtube.com/watch?v=GbrqUnbdCxs
+
 #AppServicePlan windows
 https://www.youtube.com/watch?v=WFmpHU5KS3U
 

@@ -9,6 +9,9 @@ az deployment group create --resource-group $rg --template-file .\script-singles
 #az group deployment create --resource-group $rg --template-file \script.bicep --mode Incremental -verbose
 az group delete --resource-group $rg --yes
 
+#resource group 
+az deployment sub create --location $location --template-file .\azuredeploy.bicep
+#az deployment sub create -l $location -f .\azuredeploy.bicep -p abc.json
 
 #Storage Accounts in multiple Regions
 
