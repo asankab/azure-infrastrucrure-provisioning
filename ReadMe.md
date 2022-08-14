@@ -1,4 +1,5 @@
 functionapps
+https://www.voitanos.io/blog/how-to-create-azure-function-apps-with-bicep-step-by-step/
 https://www.youtube.com/watch?v=DbyvOuOfRss
 
 APIM

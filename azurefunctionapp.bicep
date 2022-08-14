@@ -50,17 +50,18 @@ resource azFunctionApp 'Microsoft.Web/sites@2020-12-01' = {
   name:  '${envResourceNamePrefix}app'
   location: location
   kind: 'functionapp'
+  
   identity: {
     type: 'SystemAssigned'
   }
   properties: {
     httpsOnly: true
-    serverFarmId: 'serverfarms.id'
+    serverFarmId: azHostingPlan.id
     clientAffinityEnabled: true
     reserved: true
     siteConfig: {
       alwaysOn: true
-      linuxFxVersion: '1.1.1.1'
+      linuxFxVersion: 'NODE|14'
       appSettings: [
         {
           name: 'AzureWebJobsDashboard'
