@@ -1,5 +1,12 @@
 az bicep install
 
+https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/parameter-files
+az deployment group create \
+  --name ExampleDeployment \
+  --resource-group ExampleGroup \
+  --template-file storage.bicep \
+  --parameters @storage.parameters.json
+
 https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview?tabs=bicep
 https://www.youtube.com/watch?v=PFWsQNyzpGo
 
@@ -26,3 +33,58 @@ Get-InstalledModule Az
 Install-Module --Name Az -Scope CurrentUser -Repository PSGallery -Force
 
 az deployment sub create --name 'mysubcroiptionId' --template-file .\script.bicep
+
+#AppServicePlan windows
+https://www.youtube.com/watch?v=WFmpHU5KS3U
+
+#AppServicePlan linux OS / Pricing Tier
+https://www.youtube.com/watch?v=8gamaA8Nb0w
+
+#appservice
+https://www.youtube.com/watch?v=hycrzMKFedk
+
+#create appinsights
+https://www.youtube.com/watch?v=ya_OTBfuW_A
+
+#integarteappinsights with appservice
+https://www.youtube.com/watch?v=8BHS1ddnEPk
+
+#create keyvault and secrets
+Mr.Automation
+
+#Azure Bicep - Refer Key Vault for Secrets
+https://www.youtube.com/watch?v=efgFNpniuY8
+
+#multi environment
+Azure Bicep - Run Bicep script in Multiple Environments using Parameters
+https://www.youtube.com/watch?v=kOZZ11nrUsY
+
+#Azure Bicep - Create Logical SQL Server and SQL Database
+https://www.youtube.com/watch?v=yEvcFWkaBVo
+https://www.youtube.com/watch?v=xMFpJdEGof8
+
+#Azure Bicep - Whitelist IP Address for Azure SQL Database
+https://www.youtube.com/watch?v=2ay21dnSRZU
+
+#pipeline
+https://www.youtube.com/watch?v=jeQit_fwaqs
+https://www.youtube.com/watch?v=nJFy3wmZ0_M
+https://www.youtube.com/watch?v=3m-Pei8ePx8
+https://www.youtube.com/watch?v=a9y4rWXaDrs
+https://www.youtube.com/watch?v=K0BNRQQKvww
+
+#Azure DevOps - Raise Request for Microsoft Hosted Agent
+https://www.youtube.com/watch?v=iqHnHLFGe9s
+
+#basics
+Azure Bicep Parameters
+https://www.youtube.com/watch?v=vuTwwkwb16M
+
+#Azure Bicep - Communication b/w Bicep modules using Output Parameters
+https://www.youtube.com/watch?v=YKfgR6yHBH4
+
+#Azure Bicep - Modules
+https://www.youtube.com/watch?v=Qv6l6dgAQ_
+
+# App Service Plan pricing tiers
+https://www.youtube.com/watch?v=50jjZM6q81I

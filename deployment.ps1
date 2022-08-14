@@ -32,3 +32,12 @@ az group create --name $rg
 az deployment sub create --location $location --template-file .\azuredeploy.bicep
 #az group deployment create --resource-group $rg --template-file \script.bicep --mode Incremental -verbose
 az group delete --resource-group $rg --yes
+
+#AppServiePlan Windows
+az deployment group create --resource-group $rg --template-file .\appserviceplan.bicep
+
+#AppServiePlan Linuix
+az deployment group create --resource-group $rg --template-file .\appserviceplanlinux.bicep
+
+#AppServie
+az deployment group create --resource-group $rg --template-file .\appserviceplanlinux.bicep

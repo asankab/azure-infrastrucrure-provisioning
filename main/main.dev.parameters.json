@@ -1,0 +1,32 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "pAppServicePlan": {
+        "value": "value1"
+      },
+      "pAppSevice": {
+        "value": "value1"
+      },
+      "pAppInsights": {
+        "value": "value1"
+      },
+      "pSQLServer": {
+        "value": "value1"
+      },
+      "pAdministratorLogin": {
+        "value": "value1"
+      },
+      "pAdministratorLoginPassword1": {
+        "value": "value1"
+      },
+      "pAdministratorLoginPassword": {
+        "reference":{
+            "keyVault": {
+                "id": "/subscriptions/d8a0792d-d489-44e2-a6e9-d86f35da2edb/resourceGroups/WWSOLabsBicepRG/providers/Microsoft.KeyVault/vaults/azbicepkv01"
+            },
+            "secretName": "adminpass"
+        }
+      }
+    }
+  }

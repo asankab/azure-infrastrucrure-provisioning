@@ -3,7 +3,7 @@ param location string = resourceGroup().location
 param tanantId string = 'mytenantid'
 
 @secure()
-param pass string = 'amonddpass' //will propt during runtime
+param pass string //will propt during runtime
 
 resource kv 'Microsoft.KeyVault/sites@2021-11-01-preview' = {
   name: 'nkeycvv3445-kv01'
@@ -22,14 +22,14 @@ resource kv 'Microsoft.KeyVault/sites@2021-11-01-preview' = {
       ]
     }
   }
-  sky: {
+  sku: {
     family: 'A'
     name: 'Standard'
   }
-  tanantId: tanantId,
+  tenantId: tanantId
   accessPolicies: [
     {
-      objectId: 'MyAzureActiveDirctoryUserObjectId'
+      objectId: 'MyAzureActiveDirctoryUserObjectIdSecrets'
       tenantId: tanantId
       permissions: {
         secrets: [
@@ -40,7 +40,7 @@ resource kv 'Microsoft.KeyVault/sites@2021-11-01-preview' = {
       }
     }
     {
-      objectId: 'MyAzureActiveDirctoryUserObjectId'
+      objectId: 'MyAzureActiveDirctoryUserObjectIdCertificate'
       tenantId: tanantId
       permissions: {
         certificates: [
@@ -49,7 +49,7 @@ resource kv 'Microsoft.KeyVault/sites@2021-11-01-preview' = {
       }
     }
     {
-      objectId: 'MyAzureActiveDirctoryUserObjectId'
+      objectId: 'MyAzureActiveDirctoryUserObjectIdKeys'
       tenantId: tanantId
       permissions: {
         keys: [
