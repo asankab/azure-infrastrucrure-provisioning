@@ -44,3 +44,5 @@ az deployment group create --resource-group $rg --template-file .\appserviceplan
 
 #AppServie
 az deployment group create --resource-group $rg --template-file .\appserviceplanlinux.bicep
+
+az deployment group create --resource-group $rg --template-file .\appserviceplanlinux.bicep --confirm-with-what-if
