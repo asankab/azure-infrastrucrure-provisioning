@@ -1,0 +1,28 @@
+//https://www.youtube.com/watch?v=Cvbr-pI6G0o
+//https://www.youtube.com/watch?v=77AfsFzTsI4
+
+Install Bicep MSI
+https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install
+
+Install Azure CLI
+https://docs.microsoft.com/en-us/cli/azure/install-azure-cli
+
+az bicep install
+bicep --version
+
+# install bicep vscode extention
+bicep --help
+
+bicep build 'script.bicep' #Generate ARM
+
+
+GET-InstalledModule
+$PSVersionTable.PSVersion
+Get-InstalledModule Az
+
+Install-Module --Name Az -Scope CurrentUser -Repository PSGallery -Force
+
+
+
+#How to create Azure Function Apps with Bicep | step by step
+#https://www.youtube.com/watch?v=tzgB3cSUdNM

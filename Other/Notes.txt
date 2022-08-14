@@ -1,0 +1,28 @@
+az bicep install
+
+https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview?tabs=bicep
+https://www.youtube.com/watch?v=PFWsQNyzpGo
+
+domain specic language (DSL) fordeployment azure resources declatively.
+abstraction of ARM &ARM template. there are know limitations and excpetions of the
+Easier to deploy resources to Azure as deplying with ARM is cumberson
+
+https://www.youtube.com/watch?v=77AfsFzTsI4
+
+https://www.youtube.com/watch?v=wevlRsVxsUw&t=1393s
+
+BICEP CLI: compile bicep into ARM template and vise versa
+AZURECLI 2.2.00
+AZURE POWERSHELL MODULE 5.6 or newer
+
+KUDU
+shell.azure.com
+aka-ms/mafsetup
+
+GET-InstalledModule
+$PSVersionTable.PSVersion
+Get-InstalledModule Az
+
+Install-Module --Name Az -Scope CurrentUser -Repository PSGallery -Force
+
+az deployment sub create --name 'mysubcroiptionId' --template-file .\script.bicep

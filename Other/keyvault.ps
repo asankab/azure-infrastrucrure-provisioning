@@ -1,0 +1,8 @@
+param(
+    [Parameter(Mandatory)][secureString]$pass
+
+    New-AzResourceGroupDeployment -TemplateFile .\keyvault\keyvault.bicep -Mode Incremental
+        -ResourceGroupName dev -Verbose -pass $pass
+)
+
+//-kvname 'dddddddd'

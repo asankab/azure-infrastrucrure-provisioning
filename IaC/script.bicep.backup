@@ -1,0 +1,160 @@
+taregtScope = 'subscription'
+var rgName = 'deployFromBicepRG'
+
+resource myNewGroup = 'Microsoft.Resources/resourceGroups@2021-04-01' = {
+  name: rgName
+  location: 'southeastasia'
+}
+
+module storageModule 'storage.bicep' = {
+  name: 'storageModule'
+  scope: resourceGroup(myNewGroup.name)
+  params: {
+    storageName: 20125252storage
+  }
+}
+
+var prefix = 'prod';
+var storageAccountName = '${prefix}20220809storage';
+
+var regions = [
+  'eastus'
+  'southeastasia'
+  'northeurope'
+  'CentralUS'
+]
+
+// resource storageAccount1 'Microsoft.Storage/storageAccounts@2019-06-01' = [ for {region,i} in regions: {
+//   name: 'storageAccountName'${i}
+//   location: region
+//   sku: {
+//     name: 'Standard-LRS'
+//   },
+//   kind 'StorageV2'
+//   properties: {
+//     accessTier: 'Hot'
+//   }
+// }
+
+// resource storageAccount1 'Microsoft.Storage/storageAccounts@2019-06-01' = if ( prefix == 'prod' { [ for {region,i} in regions: {
+//     name: 'storageAccountName'${i}
+//     location: region
+//     sku: {
+//       name: 'Standard-LRS'
+//     },
+//     kind 'StorageV2'
+//     properties: {
+//       accessTier: 'Hot'
+//     }
+//   })
+// }
+
+// resource storageAccount1 'Microsoft.Storage/storageAccounts@2019-06-01' = if ( prefix == 'prod' {
+//   name: 'storageAccountName'${i}${prefix}
+//   location: region
+//   sku: {
+//     name: 'Standard-LRS'
+//   },
+//   kind 'StorageV2'
+//   properties: {
+//     accessTier: 'Hot'
+//   }
+// }
+
+// resource storageAccount2 'Microsoft.Storage/storageAccounts@2019-06-01' = if ( prefix == 'dev' {
+//   name: 'storageAccountName'${i}${prefix}
+//   location: region
+//   sku: {
+//     name: 'Standard-LRS'
+//   },
+//   kind 'StorageV2'
+//   properties: {
+//     accessTier: 'Hot'
+//   }
+// }
+
+resource storage 'Microsoft.Storage/storageAccounts@2019-06-01' = if ( prefix == 'dev' {
+  name: 'storageAccountName'${i}${prefix}
+  location: region
+  sku: {
+    name: 'Standard-LRS'
+  },
+  kind 'StorageV2'
+  properties: {
+    accessTier: 'Hot'
+  }
+}
+
+
+resource storage 'Microsoft.Storage/storageAccounts@2019-06-01' = if ( prefix == 'dev' {
+  name: 'storageAccountName'${i}${prefix}
+  location: region
+  sku: {
+    name: 'Standard-LRS'
+  },
+  kind 'StorageV2'
+  properties: {
+    accessTier: 'Hot'
+  }
+}
+
+@minLength(1)
+@maxLength(9)
+param name string
+param sku string = 'B1'
+param webAppName string = uniqueString(resourceGroup().id)
+
+param linuxFxVersion string = 'php|7.4'
+
+param appServicePlanName string = tolower('AppServicePlan-${webAppName}')
+param webSiteName string = tolower('webapp-${webAppName}')
+
+//App Service Plan
+resource appServicePlan 'Microsoft.Web/serverfarms@2020-12-01' = {
+  name: 'appServiceTricks1253526plan'
+  location: resourceGroup().location
+  sku: {
+    name: 'F1'
+    capacity: 1
+  }
+  kind: 'linux'
+  properties: {
+    reserved: true
+  }
+}
+
+//https://www.youtube.com/watch?v=77AfsFzTsI4
+//App Service Web App
+resource webApplication 'Microsoft.Web/sites@2018-11-01' = {
+  dependsOn: [
+    appServicePlan
+  ]
+  name: name
+  kind: 'app'
+  tags: {
+
+  }
+  location: resourceGroup().location
+  properties: {
+    serverFarmId: resourceId('Microsoft.Web/serverfarms', 'appServiceTricks1253526plan')
+    siteConfig: {
+      linuxFxVersion: linuxFxVersion
+    }
+  }
+}
+
+//az deployment group create --resource-group TipsExanple1 --template-file main.bicep --parameters name='Mywebtricsls3445667'
+
+//App Service Web App
+resource webApplication 'Microsoft.Web/sites@2018-11-01' = {
+  name: name
+  tags: {
+
+  }
+  location: resourceGroup().location
+  properties: {
+    serverFarmId: resourceId('Microsoft.Web/serverfarms', 'appServiceTricks1253526plan')
+  }
+}
+
+//https://www.youtube.com/watch?v=yOjQqXlpXEk
